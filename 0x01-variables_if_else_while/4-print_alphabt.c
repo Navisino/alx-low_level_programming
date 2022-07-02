@@ -6,15 +6,15 @@
  */
 int main(void)
 {
-char ch;
-for (ch = 'a' ; ch <= 'z' ; ch++)
-{
-	putchar(ch);
-}
-for (ch = 'A' ; ch <= 'Z' ; ch++)
-{
-	putchar(ch);
+	char c = 'a';
+
+	while (c <= 'z')
+	{
+		if (c != 'q' && c != 'e')
+			putchar(c);
+		c++;
 	}
-putchar('\n');
-return (0);
+	putchar('\n');
+
+	return (0);
 }
