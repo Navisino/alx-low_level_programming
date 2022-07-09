@@ -1,14 +1,15 @@
 #include <stdio.h>
+#include <unistd.h>
+
 /**
- * main - main function in the task
- *
- *Return: 1
+ * main - Entry point
+ * Return: Always 0 (Success)
  */
+
 int main(void)
 {
-	; fprintf(stderr, "and that piece of art is useful\" - ")
-	; fprintf(stderr, "Dora Korpar, 2015-10-19\n");
+	char var[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+
+	write(2, var, sizeof(var) - 1);
 	return (1);
 }
-
-
