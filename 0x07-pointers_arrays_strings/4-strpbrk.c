@@ -2,36 +2,29 @@
 #include <stdlib.h>
 
 /**
- * _strspn - search a string for a set of bytes
- * @s: char string array
- * @accept: char array to check bytes with
- * Return: Number of bytes in the intial segment of `s`
- */
+* _strpbrk - Searches for a string.
+* @s: Pointer
+* @accept: Pointer that accepts specific cg¡haracters
+* Return: A pointer to the byte in s that matches *accept
+**/
 
-unsigned int _strspn(char *s, char *accept)
+char *_strpbrk(char *s, char *accept)
 {
-	int i;
-	int j;
-	int c;
+	int i, j, a;
 
 	i = 0;
-	c = 0;
-
 	while (s[i] != '\0')
 	{
-		j = 0;
-		while (accept[j] != '\0')
+		a = 0;
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-			if (s[i] == accept[j])
-			{
-				c++;
-				break;
-			}
-			j++;
+		if (s[i] == accept[j])
+		a = 1;
 		}
-		if (accept[j] == '\0')
-			break;
+		j = 0;
+		if (a == 1)
+		return (i + s);
 		i++;
 	}
-	return (c);
+	return (NULL);
 }
