@@ -1,9 +1,11 @@
 #include <stdio.h>
 
 /**
- * before_main - Print statement within this fxn before running main fxn.
+ * 64-bit program in assembly that prints Hello, Holberton.
  */
-void __attribute__((constructor)) before_main(void)
+
+int main(void)
 {
-	printf("Hello, Holberton\n");
+printf("Hello, Holberton\n");
+return 0;
 }
