@@ -1,60 +1,41 @@
 #include "search_algos.h"
 
 /**
- * binary_search - binary search a ascending sorted array to find a value.
- * No duplicates in array. Must print subarray each split.
- * @array: pointer to first element in array to search in
- * @size: number of elements in array
+ * binary_search - implement  binary search  algo
+ * @array: given array to search in
+ * @size: size of the array
  * @value: value to search for
- * Return: index of matched value in array or -1 if error or not found
+ * Return: first index or -1
  */
 int binary_search(int *array, size_t size, int value)
 {
-	int tmp;
-	size_t b = 0;
+	size_t i = 0;
+	size_t left = 0, right = size - 1, midlle;
 
-	if (array == NULL || size == 0)
-		return (-1);
-	size--;
-	while (b <= size)
+	if (array == NULL)
+	return (-1);
+	while (left <= right)
 	{
-		print_array(array, b, size);
-
-		tmp = (size - b) / 2 + b;
-		if (array[tmp] == value)
-			return (tmp);
-		else if (array[tmp] < value)
+		printf("Searching in array: ");
+		for (i = left; i < right; i++)
 		{
-			if (size % 2 == 1)
-				b = tmp + 1;
-			else
-				b = tmp;
+		printf("%i, ", array[i]);
+		}
+		printf("%i\n", array[right]);
+		midlle = (left + right) / 2;
+		if (array[midlle] < value)
+		{
+		left = midlle + 1;
+		}
+		else if (array[midlle] > value)
+		{
+		right = midlle - 1;
 		}
 		else
 		{
-			if (size % 2 == 1)
-				size = tmp;
-			else
-				size = tmp - 1;
+		return (midlle);
 		}
+
 	}
 	return (-1);
-}
-
-/**
- * print_array - print the current array given rules on format
- * @array: array to print
- * @inc: starting incrementer index
- * @size: increment up to this size
- */
-void print_array(int *array, size_t inc, size_t size)
-{
-	printf("Searching in array: ");
-	for (; inc <= size; inc++)
-	{
-		printf("%d", array[inc]);
-		if (inc < size)
-			printf(", ");
-	}
-	printf("\n");
 }
